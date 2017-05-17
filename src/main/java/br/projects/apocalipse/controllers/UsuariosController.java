@@ -57,4 +57,10 @@ public class UsuariosController {
 	public ResponseEntity<?> adicionarItem(@PathVariable("id") Long id, @RequestBody Item item){
 		return ResponseEntity.ok(usuariosService.adicionarItemUsuario(id, item));
 	}
+	
+	@RequestMapping(path = "/{id}/items", method = RequestMethod.DELETE)
+	@ResponseBody
+	public ResponseEntity<?> removerItem(@PathVariable("id") Long id, @RequestBody Item item){
+		return ResponseEntity.ok(usuariosService.removerItemUsuario(id, item));
+	}
 }
