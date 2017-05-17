@@ -23,7 +23,9 @@ public class UsuarioService {
 	}
 	
 	public void removerUsuario(Long id){
-		this.usuarios.delete(id);
+		if(usuarios.findOne(id) != null){
+			this.usuarios.delete(id);
+		}
 	}
 
 	public Usuarios getUsuarios() {

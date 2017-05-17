@@ -40,8 +40,13 @@ public class UsuarioTests {
     }
     
     @Test
-    public void removerUsuarioTeste(){
+    public void removerUsuarioQueExisteTeste(){
     	Usuario usuarioSalvo = usuarioService.salvarUsuario(usuario);
     	usuarioService.removerUsuario(usuarioSalvo.getId());
+    }
+    
+    @Test
+    public void removerUsuarioQueNaoExiste(){
+    	usuarioService.removerUsuario(Long.MAX_VALUE);
     }
 }
