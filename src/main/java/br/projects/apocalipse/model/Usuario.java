@@ -38,7 +38,7 @@ public class Usuario {
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "localizao_id")
 	private Localizacao ultima;
 
