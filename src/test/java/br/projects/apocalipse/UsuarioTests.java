@@ -15,6 +15,11 @@ import br.projects.apocalipse.model.Localizacao;
 import br.projects.apocalipse.model.Usuario;
 import br.projects.apocalipse.service.UsuarioService;
 
+/**
+ * 
+ * @author Guthierrez
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UsuarioTests {
