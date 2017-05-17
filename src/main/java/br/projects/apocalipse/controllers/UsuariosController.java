@@ -76,7 +76,7 @@ public class UsuariosController {
 	 * @return retorna JSON do usuário atualizado ou vazio se o usuário não
 	 *         existe
 	 */
-	@RequestMapping(path = "/{id}/localizacao", method = RequestMethod.PUT)
+	@RequestMapping(path = "/{id}/localizacao", method = RequestMethod.PUT, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	public ResponseEntity<?> atualizarLocalizacao(@PathVariable("id") Long id, @RequestBody Localizacao localizacao) {
 		return ResponseEntity.ok(usuariosService.atualizarLocalizacaoUsuario(id, localizacao));
@@ -90,7 +90,7 @@ public class UsuariosController {
 	 * @return retorna JSON do usuário atualizado ou vazio se o usuário não
 	 *         existe
 	 */
-	@RequestMapping(path = "/{id}/items", method = RequestMethod.PUT)
+	@RequestMapping(path = "/{id}/items", method = RequestMethod.PUT, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	public ResponseEntity<?> adicionarItem(@PathVariable("id") Long id, @RequestBody Item item) {
 		return ResponseEntity.ok(usuariosService.adicionarItemUsuario(id, item));
@@ -104,7 +104,7 @@ public class UsuariosController {
 	 * @return retorna JSON do usuário atualizado ou vazio se o item não existe
 	 *         ou usuário não existe
 	 */
-	@RequestMapping(path = "/{id}/items", method = RequestMethod.DELETE)
+	@RequestMapping(path = "/{id}/items", method = RequestMethod.DELETE, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	public ResponseEntity<?> removerItem(@PathVariable("id") Long id, @RequestBody Item item) {
 		return ResponseEntity.ok(usuariosService.removerItemUsuario(id, item));
