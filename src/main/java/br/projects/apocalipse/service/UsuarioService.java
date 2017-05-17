@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.projects.apocalipse.model.Item;
 import br.projects.apocalipse.model.Localizacao;
 import br.projects.apocalipse.model.Usuario;
 import br.projects.apocalipse.repository.Usuarios;
@@ -29,8 +30,8 @@ public class UsuarioService {
 		}
 	}
 	
-	public Usuario atualizarLocalizacaoUsuario(Long usuarioId, Localizacao localizacao){
-		Usuario usuario = this.usuarios.findOne(usuarioId);
+	public Usuario atualizarLocalizacaoUsuario(Long id, Localizacao localizacao){
+		Usuario usuario = this.usuarios.findOne(id);
 		if(usuario != null){
 			usuario.setUltima(localizacao);
 			return this.usuarios.save(usuario);
@@ -40,8 +41,19 @@ public class UsuarioService {
 			
 	}
 
+	public Object adicionarItemUsuario(Long id, Item item) {
+		Usuario usuario = this.usuarios.findByIdAndFetchEager(id);
+		if(usuario != null){
+			usuario.getItens().add(item);
+			return this.usuarios.save(usuario);
+		}else{
+			return null;
+		}	
+	}
+
 	public Usuarios getUsuarios() {
 		return usuarios;
 	}
+
 
 }

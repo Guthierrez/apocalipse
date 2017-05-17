@@ -50,7 +50,7 @@ public class Usuario {
 
 	private Boolean infectado;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")
 	private List<Item> itens;
 
