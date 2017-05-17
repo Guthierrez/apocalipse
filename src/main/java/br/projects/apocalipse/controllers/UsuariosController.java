@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import br.projects.apocalipse.model.Item;
+import br.projects.apocalipse.model.Localizacao;
 import br.projects.apocalipse.model.Usuario;
 import br.projects.apocalipse.service.UsuarioService;
 
@@ -42,5 +44,17 @@ public class UsuariosController {
 	public ResponseEntity<?> removerUsuario(@PathVariable("id") Long id){
 		usuariosService.removerUsuario(id);
 		return ResponseEntity.ok(HttpStatus.OK);
+	}
+	
+	@RequestMapping(path = "/{id}/localizacao", method = RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<?> atualizarLocalizacao(@PathVariable("id") Long id, @RequestBody Localizacao localizacao){
+		return ResponseEntity.ok(usuariosService.atualizarLocalizacaoUsuario(id, localizacao));
+	}
+	
+	@RequestMapping(path = "/{id}/items", method = RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<?> adicionarItem(@PathVariable("id") Long id, @RequestBody Item item){
+		return ResponseEntity.ok(usuariosService.adicionarItemUsuario(id, item));
 	}
 }
