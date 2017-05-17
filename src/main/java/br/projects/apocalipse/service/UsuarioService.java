@@ -23,6 +23,7 @@ public class UsuarioService {
 
 	/**
 	 * Lista os usuarios cadastrados na base de dados
+	 * 
 	 * @return a lista de usuários
 	 */
 	public List<Usuario> listarUsuarios() {
@@ -31,6 +32,7 @@ public class UsuarioService {
 
 	/**
 	 * Cria ou atualiza um usuário na base de dados
+	 * 
 	 * @param usuario
 	 * @return retorna usuário criado e/ou atualizado
 	 */
@@ -40,6 +42,7 @@ public class UsuarioService {
 
 	/**
 	 * Remove um usuário existe da base de dados
+	 * 
 	 * @param id
 	 */
 	public void removerUsuario(Long id) {
@@ -50,6 +53,7 @@ public class UsuarioService {
 
 	/**
 	 * Atualiza a ultima localização de um usuário
+	 * 
 	 * @param id
 	 * @param localizacao
 	 * @return retorna usuário atualizado ou @null se o usuário não existe
@@ -67,6 +71,7 @@ public class UsuarioService {
 
 	/**
 	 * Adiciona um item no usuário
+	 * 
 	 * @param id
 	 * @param item
 	 * @return retorna usuário atualizado ou @null se o usuário não existe
@@ -81,12 +86,13 @@ public class UsuarioService {
 		}
 	}
 
-	
 	/**
 	 * Remover um item de um usuário
+	 * 
 	 * @param id
 	 * @param item
-	 * @return retorna usuário atualizado ou @null se o item não existe ou usuário não existe
+	 * @return retorna usuário atualizado ou @null se o item não existe ou
+	 *         usuário não existe
 	 */
 	public Usuario removerItemUsuario(Long id, Item item) {
 		Usuario usuario = this.usuarios.findByIdAndFetchEager(id);
