@@ -85,4 +85,10 @@ public class UsuarioTests {
     public void adicionarItemUsuarioNaoExisteTeste(){
     	Assert.assertEquals(usuarioService.adicionarItemUsuario(Long.MAX_VALUE, item), null);
     }
+    
+    @Test
+    public void removerItemNaoExisteUsuarioExiste(){
+    	Usuario usuarioSalvo = usuarioService.salvarUsuario(usuario);
+    	Assert.assertEquals(usuarioService.removerItemUsuario(usuarioSalvo.getId(), item), null);
+    }
 }
