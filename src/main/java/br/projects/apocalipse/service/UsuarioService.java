@@ -18,7 +18,16 @@ public class UsuarioService {
 		return usuarios.findAll();
 	}
 	
+	public Usuario salvarUsuario(Usuario usuario) {
+		return this.usuarios.save(usuario);
+	}
+	
+	public void removerUsuario(Long id){
+		this.usuarios.delete(id);
+	}
+
 	public Usuarios getUsuarios() {
 		return usuarios;
 	}
+
 }
